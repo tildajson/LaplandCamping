@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" defer></script>
+		<link rel="stylesheet" href="/stylesheets/home.css" />
+		<title>LaplandCamping</title>
+	</head>
+	<body class="d-flex text-center text-white bg-dark">
+		<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+			<header class="mb-auto">
+				<div>
+					<h3 class="float-md-start mb-0">LaplandCamping</h3>
+					<nav class="nav nav-masthead justify-content-center float-md-end">
+						<a href="#" aria-current="page" class="nav-link active">Home</a>
+						<a href="/campgrounds" class="nav-link">All Campgrounds</a>
+						<% if(!currentUser) {%>
+						<a href="/login" class="nav-link">Login</a>
+						<a href="/register" class="nav-link">Sign up</a>
+						<% }else {%>
+						<a href="/logout" class="nav-link">Log out</a>
+						<% } %>
+					</nav>
+				</div>
+			</header>
+			<main class="px-3">
+				<h1>Welcome to LaplandCamping!</h1>
+				<p class="lead mb-4">
+					A place where you can explore many of the beautiful campsites in the north. <br />
+					Enjoy your stay in Swedish Lapland!
+				</p>
+				<a id="mainButton" href="/campgrounds" class="btn btn-lg btn-secondary fw-bold bg-white">Take me there</a>
+			</main>
+			<footer class="mt-auto text-white-50">
+				<p>&copy; Tilda Johansson <%= new Date().getFullYear() %></p>
+			</footer>
+		</div>
+	</body>
+</html>

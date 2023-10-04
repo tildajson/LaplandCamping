@@ -1,0 +1,39 @@
+<% layout("layouts/boilerplate") %>
+<div id="cluster-map" class="mb-3"></div>
+<%- include('../partials/paginate')%> <% for(let campground of campgrounds.docs) { %>
+<div class="card mb-3">
+	<div class="row">
+		<div class="col-md-4">
+			<% if(campground.images.length) {%>
+			<img class="img-fluid" alt="" src="<%= campground.images[0].url %>" crossorigin />
+			<% }else {%>
+			<img
+				class="img-fluid"
+				alt=""
+				src="https://res.cloudinary.com/dfjwx5aqb/image/upload/v1696187315/LaplandCamping/dw5yzttrn19z8zxl49bz.jpg"
+				crossorigin />
+			<% } %>
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">
+					<span class="fw-bold"><%= campground.title %></span>
+					<p class="card-text fw-normal mt-2"><%= campground.description %></p>
+					<p class="card-text">
+						<small class="text-muted"><%= campground.location %></small>
+					</p>
+					<a href="campgrounds/<%= campground._id %>" class="btn btn-primary">View <%= campground.title %></a>
+				</h5>
+			</div>
+		</div>
+	</div>
+</div>
+<% } %> <%- include('../partials/paginate')%>
+
+<script>
+	const mapToken = "<%-process.env.MAPBOX_TOKEN%>";
+	// False error by VSCode
+	const campgrounds = {features: <%- JSON.stringify(campgrounds.docs) %>};
+</script>
+
+<script src="/javascripts/clusterMap.js"></script>
