@@ -23,7 +23,7 @@ const helmet = require("helmet");
 const MongoStore = require("connect-mongo");
 const { scriptSrcUrls, styleSrcUrls, connectSrcUrls, fontSrcUrls } = require("./utilities/helmetConfig");
 // MongoDB
-const dbUrl = "mongodb+srv://tilda:Pricken0999@laplandcamping.qmwjh17.mongodb.net/?retryWrites=true&w=majority" //process.env.DB_URL || "mongodb://127.0.0.1:27017/laplandCamping";
+const dbUrl = process.env.DB_URL;
 
 // Express
 const app = express();
