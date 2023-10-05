@@ -7,7 +7,7 @@ const Campground = require("../models/campground");
 mongoose.set("strictQuery", false);
 
 // Connect to mongoose
-const dbUrl = "mongodb+srv://tilda:Pricken0999@laplandcamping.qmwjh17.mongodb.net/?retryWrites=true&w=majority" //process.env.DB_URL || "mongodb://127.0.0.1:27017/laplandCamping";
+const dbUrl = process.env.DB_URL;
 main().catch((err) => console.log(err));
 async function main() {
 	mongoose.connect(dbUrl);
